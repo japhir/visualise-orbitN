@@ -13,16 +13,6 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 
-bl_info = {
-    "name": "Visualize orbitN",
-    "author": "Ilja Kocken",
-    "version": (0, 0, 1),
-    "blender": (3, 5, 1),
-    "location": "3D Viewport > Sidebar > vis-orbitN",
-    "description": "Functions to visualize orbitN output in 3D/4D space.",
-    "category": "Development",
-}
-
 import bpy
 
 import mathutils
@@ -510,60 +500,3 @@ def make_eccentricity_curve(exp, tmax = 405, dt = 0.8, outext = ".elm.dat"):
 ##    time = -data[i][0]/365.25*1e-3
 ##    txt.keyframe_insert(data_path="body", frame = frame)
 ##    txt.data.body=str(round(time)) + " thousand years ago"
-
-
-# SOMEDAY/MAYBE: conver this into a blender addon
-# see e.g. https://www.youtube.com/watch?v=0_QskeU8CPo
-# would need to define a new class for each major function that I'd like to call
-
-# #######################################################################
-# #                       add a menu in blender                         #
-# #######################################################################
-
-# class VIEW3D_PT_orbitN_panel(bpy.types.Panel):  # class naming convention ‘CATEGORY_PT_name’
-
-#     # where to add the panel in the UI
-#     bl_space_type = "VIEW_3D"  # 3D Viewport area (find list of values here https://docs.blender.org/api/current/bpy_types_enum_items/space_type_items.html#rna-enum-space-type-items)
-#     bl_region_type = "UI"  # Sidebar region (find list of values here https://docs.blender.org/api/current/bpy_types_enum_items/region_type_items.html#rna-enum-region-type-items)
-
-#     bl_category = "orbitN"  # found in the Sidebar
-#     bl_label = "visualize orbitN"  # found at the top of the Panel
-
-#     def draw(self, context):
-#         """define the layout of the panel"""
-#         row = self.layout.row()
-#         row.operator("make_meshes(exp = 'modern-highres', make_planets = True, animate_planets = True)",
-#                      text="Make modern run meshes <animating planet position is SLOW>!")
-#         row = self.layout.row()
-#         row.operator("make_meshes(exp = 'solsys-keplerian', tmax = 405, dt = 1, outext = '.dat', make_planets = False, animate_planets = False)",
-#                      text="Make solsys-keplerian 405 kyr meshes")
-#         row = self.layout.row()
-#         row.operator("make_meshes(exp = 'solsys-keplerian', tmax = 2.4e3, dt = .4, outext = '.dat', make_planets = False, animate_planets = False)",
-#                      text="Make solsys-keplerian 2.4 Myr meshes")
-#         row = self.layout.row()
-#         row.operator("make_meshes(exp = 'solsys-keplerian', tmax = 60e3, dt = .4, outext = '.dat', make_planets = False, animate_planets = False)",
-#                      text="Make solsys-keplerian 60 Myr meshes <SLOWish>!")
-#         row = self.layout.row()
-#         row.operator("make_animated_orbits(exp = 'solsys-keplerian', tmax = .4, dt = 0.4, outext = '.elm.dat')",
-#                      text = "Make animated orbits for solsys-keplerian at t = 0")
-#         row = self.layout.row()
-#         row.operator("make_animated_orbits(exp = 'solsys-keplerian', tmax = 405, dt = 0.8, outext = '.elm.dat')",
-#                      text = "Make animated orbits for solsys-keplerian for 405 kyr <SLOWish>!")
-#         row = self.layout.row()
-#         row.operator("make_animated_orbits(exp = 'solsys-keplerian', tmax = 2.4e3, dt = 0.8, outext = '.elm.dat')",
-#                      text = "Make animated orbits for solsys-keplerian for 2.3 Myr <SLOW>!")
-#         row = self.layout.row()
-#         row.operator("make_eccentricity_curve(exp = 'solsys-keplerian', tmax = 405, dt = .8, outext = '.elm.dat')",
-#                      text = "Make eccentricity curve for solsys-keplerian for 405 kyr")
-#         row = self.layout.row()
-#         row.operator("make_eccentricity_curve(exp = 'solsys-keplerian', tmax = 2.4e3, dt = .8, outext = '.elm.dat')",
-#                      text = "Make eccentricity curve for solsys-keplerian for 2.4 Myr")
-
-# def register():
-#     bpy.utils.register_class(VIEW3D_PT_orbitN_panel)
-
-# def unregister():
-#     bpy.utils.unregister_class(VIEW3D_PT_orbitN_panel)
-
-# if __name__ == "__main__":
-#     register()
