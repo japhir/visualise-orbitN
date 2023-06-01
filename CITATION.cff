@@ -1,0 +1,42 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: visualise-orbitN
+message: >-
+  If you use this software, please cite it using the
+  metadata from this file.
+type: software
+authors:
+  - given-names: Ilja Japhir
+    family-names: Kocken
+    email: ikocken@hawaii.edu
+    affiliation: University of Hawaii at Manoa
+    orcid: 'https://orcid.org/0000-0003-2196-8718'
+repository-code: 'https://github.com/japhir/visualise-orbitN'
+abstract: >-
+  orbitN is a symplectic integrator for near-Keplerian
+  planetary systems. This allows us to calculate how the
+  solar system may have evolved over geological time scales,
+  and to interrogate Earth's eccentricity in the geologic
+  past. See Zeebe 2023 for the paper that describes the
+  model. orbitN will be available for free on
+  https://github.com/rezeebe/orbitN under the GPL-3 license.
+
+
+  Blender is a free (libre) 3D software that's used in
+  movies and games. Here we use Blender's python API to
+  visualise orbitN output in 3D.
+keywords:
+  - blender
+  - python
+  - solar system
+  - simulation
+  - visualisation
+  - visualization
+  - orbitN
+  - cyclostratigraphy
+  - palaeoclimate
+  - paleoclimate
+license: GPL-3.0-or-later
+date-released: '2023-05-31'
