@@ -1,4 +1,4 @@
-# visualize orbitN output in Blender
+# visualise orbitN output in Blender
 
 orbitN is a symplectic integrator for near-Keplerian planetary systems. This
 allows us to calculate how the solar system may have evolved over geological
@@ -7,7 +7,7 @@ Zeebe 2023 for the paper that describes the model. orbitN will be available for
 free on https://github.com/rezeebe/orbitN under the GPL-3 license.
 
 [Blender](https://www.blender.org/) is a free (libre) 3D software that's used
-in movies and games. Here we use Blender's python API to visualize orbitN
+in movies and games. Here we use Blender's python API to visualise orbitN
 output in 3D.
 
 <!-- TODO: insert gif of orbital elements here -->
@@ -30,21 +30,39 @@ output in 3D.
 
 # Getting Started
 
-Download `vizualize_orbitN.py` by opening it on GitHub, then clicking the
-Download Raw File button in the top-right (or git clone this repository).
+1. Download `visualise_orbitN.py` by opening it on GitHub, then clicking the
+   Download Raw File button in the top-right (or git clone this repository).
+2. Download `visualise_orbitN.blend` file for the example output that I created.
+3. Open `visualise_orbitN.blend` in Blender.
+4. In Blender, click the top panel's "Scripting" to change the layout. Go to
+   Text > Open > select the newly downloaded file.
+5. Change the directory in the function definition of `get_files` so it points
+   to your orbitN sim directory. Navigate to the bottom of the file, where we
+   invoke the functions.
+6. Uncomment the desired function call and hit the Run Script button (play
+   arrow at the top).
 
-In Blender, click the top panel's "Scripting" to change the layout.
-Go to Text > Open > select the newly downloaded file.
+## Example blend file
 
-Change the directory in the function definition of `get_files` so it points to
-your orbitN sim directory. Navigate to the bottom of the file, where we invoke
-the functions.
+This file has some collections with example visualisations:
 
-Uncomment the desired function call and hit the Run Script button (play arrow
-at the top).
+### modern-highres
+I ran orbitN with the 8 planets and pluto for 246.6 years into the future
+(close to the orbital period of Pluto) with a timestep of 5 days, just to take
+the model for a spin.
+
+### solsys-keplerian
+I ran orbitN with the 8 planets and pluto for 60 million years into the past
+with a timestep of 400 years. (This took about 5:28 hours on my laptop!).
+
+### collection naming
+- **modern** high resolution model run with moving planets!
+- **meshes** all cartesian coordinates in data as vertices (points).
+- **orbits** animated orbits as grease pencil objects.
+- **eccentricity** simple line tracing out Earth's eccentricity, with a planet
+  moving along at the same pace as the orbits.
 
 # Available functions
-
 At the bottom of the script, the following function invocations are available:
 
 - `make_meshes` draws vertices (points) for each of the rows in the data. It
@@ -85,6 +103,15 @@ make_animated_orbits(exp = "solsys-keplerian", tmax = 405, dt = 0.8, outext = ".
 make_eccentricity_curve(exp = "solsys-keplerian", tmax = 405, dt = .8, outext = ".elm.dat", make_planet = True)
 # this is pretty fast
 ```
+
+# Getting the Night Sky in the background
+
+This [repository](https://github.com/alcove-design/blender-world-night-sky) has
+instructions on how to download the night's sky from NASA and use it as a world
+texture HDRI. On the [NASA website](https://svs.gsfc.nasa.gov/3895) it says
+that the first map is in "celestial (J2000 geocentric right ascension and
+declination)" coordinates, which means that they actually align with our
+orbits/planets, which are in an inertial reference frame.
 
 # References
 
