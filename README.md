@@ -51,9 +51,15 @@ I ran orbitN with the 8 planets and pluto for 246.6 years into the future
 (close to the orbital period of Pluto) with a timestep of 5 days, just to take
 the model for a spin.
 
+NOTE: I had to eliminate the animation for this from the blend file to reduce
+its size, so the planets stop moving after 10 frames.
+
 ### solsys-keplerian
 I ran orbitN with the 8 planets and pluto for 60 million years into the past
 with a timestep of 400 years. (This took about 5:28 hours on my laptop!).
+
+NOTE: I had to delete the 2.4 Myr and 60 Myr pointclouds from the blend file to
+make the filesize manageable.
 
 ### collection naming
 - **modern** high resolution model run with moving planets!
