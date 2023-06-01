@@ -22,6 +22,7 @@ import pyorb
 
 from math import tau, pi, sin, cos
 
+# install this blender plugin:
 from bpybb.color import hex_color_to_rgba
 
 #######################################################################
@@ -93,11 +94,10 @@ def subset_data(data, tmax = 405, dt = 0.4):
     Subset data to tmax in timesteps of dt (both in kyr).
     No interpolation, just ceil/int casting.
     """
-    assert tmax > 0, f"tmax must be greater than 0 or None: {tmax}"
-    assert dt >= 0, f"dt must be greater than 0 or None: {dt}"
-
+    assert tmax > 0, f"tmax must be greater than 0: {tmax}"
+    assert dt >= 0, f"dt must be greater than 0: {dt}"
+    # no subset
     if tmax == math.inf and dt == 0:
-        print("no subset")
         return(data)
     # in_sstep -73050 steps
     # dt = -2 days
@@ -325,7 +325,7 @@ def animate_planet(data, empty):
     # Set the end frame of the animation
     bpy.context.scene.frame_end = len(data)
 
-def make_meshes(exp, tmax, dt, outext = ".dat", make_planets = False, animate_planets = False):
+def make_meshes(exp, tmax = math.inf, dt = 0, outext = ".dat", make_planets = False, animate_planets = False):
     """
     Takes an experiment folder in your default directory and draws
     a mesh with vertices for xyz locations and a planet at 1000x, potentially animating
@@ -424,7 +424,7 @@ def make_animated_orbits(exp, tmax = 5, dt = .4, outext = ".elm.dat"):
         # Set the end frame of the animation
         bpy.context.scene.frame_end = len(data)
 
-def make_eccentricity_curve(exp, tmax = 405, dt = 0.8, outext = ".elm.dat"):
+def make_eccentricity_curve(exp, tmax = 405, dt = 0.8, outext = ".elm.dat", make_planet = True):
     """
     Draw the Earth's eccentricity as a function of time
     """
@@ -441,18 +441,18 @@ def make_eccentricity_curve(exp, tmax = 405, dt = 0.8, outext = ".elm.dat"):
                  objname = str(j) + "_orbit_" + names[j],
                  matname = str(j) + "_material_" + names[j] + "_MANUAL",
                  collection = collection, type = "eccentricity", cyclic = False)
-    ecc = make_planet(position = [0*0.001, 0.0, orb.e[0]*10],
-                radius = 1e3 * get_planet_radii()[j],
-                emptyname = str(j) + "_eccentricity_" + names[j],
-                spherename = str(j) + "_ecc_body_" + names[j],
-                material = bpy.data.materials['Material'],
-                color = get_planet_colors()[j],
-                collection = collection)
-    planet_pos = []
-    for i, o in enumerate(orb.e):
-        planet_pos.append([0.0, i * 0.001, 0.0, orb.e[i]*10])
-    animate_planet(planet_pos, ecc)
-
+    if make_planet:
+        ecc = make_planet(position = [0*0.001, 0.0, orb.e[0]*10],
+                          radius = 1e3 * get_planet_radii()[j],
+                          emptyname = str(j) + "_eccentricity_" + names[j],
+                          spherename = str(j) + "_ecc_body_" + names[j],
+                          material = bpy.data.materials['Material'],
+                          color = get_planet_colors()[j],
+                          collection = collection)
+        planet_pos = []
+        for i, o in enumerate(orb.e):
+            planet_pos.append([0.0, i * 0.001, 0.0, orb.e[i]*10])
+            animate_planet(planet_pos, ecc)
 
 #######################################################################
 #                           draw modern runs                          #
@@ -481,9 +481,8 @@ def make_eccentricity_curve(exp, tmax = 405, dt = 0.8, outext = ".elm.dat"):
 #make_animated_orbits(exp = "solsys-keplerian", tmax = 2.4e3, dt = 0.8, outext = ".elm.dat")
 
 # draw an eccentricity curve vs time (1 frame * 0.001 on x, 0 on y, eccentricity * 10 on z
-#make_eccentricity_curve(exp = "solsys-keplerian", tmax = 405, dt = .8, outext = ".elm.dat")
-#make_eccentricity_curve(exp = "solsys-keplerian", tmax = 2.4e3, dt = .8, outext = ".elm.dat")
-
+#make_eccentricity_curve(exp = "solsys-keplerian", tmax = 405, dt = .8, outext = ".elm.dat", make_planet = True)
+#make_eccentricity_curve(exp = "solsys-keplerian", tmax = 2.4e3, dt = .8, outext = ".elm.dat", make_planet = True)
 
 
 ### create a text object that says the current timestep
