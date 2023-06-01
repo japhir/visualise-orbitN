@@ -10,7 +10,7 @@ free on https://github.com/rezeebe/orbitN under the GPL-3 license.
 in movies and games. Here we use Blender's python API to visualise orbitN
 output in 3D.
 
-<!-- TODO: insert gif of orbital elements here -->
+![modern-orbits](https://github.com/japhir/visualise-orbitN/assets/10659193/4301580b-fdf9-429a-8c6e-dac14a3ddd7d)
 
 # Installation
 
