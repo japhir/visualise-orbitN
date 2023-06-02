@@ -14,15 +14,18 @@ output in 3D.
 
 # Example movies
 
-![movie of animated modern orbits](movies/modern_orbits_highres.mp4)
+I've made some example movies! To download them, click on the link and go to
+the top right > Download raw file.
+
+[movie of animated modern orbits](movies/modern_orbits_highres.mp4)
 This is a video of a simulation into the future, with a timestep of 5 days.
 Because the video plays at 24 frames per second, this means that every second,
 120 days pass.
 
-![movie of animated orbits for the past 405 kyr](movies/animated_orbits_405kyr_g5.mp4)
+[movie of animated orbits for the past 405 kyr](movies/animated_orbits_405kyr_g5.mp4)
 This video shows how the orbits dance around over the past 405 thousand years (kyr) from an angle. It also shows what Earth's eccentricity looked like at the time.
 
-![movie of animated orbits for the past 405 kyr from the top](movies/animated_orbits_405kyr_ortho_top.mp4)
+[movie of animated orbits for the past 405 kyr from the top](movies/animated_orbits_405kyr_ortho_top.mp4)
 The same as the above, but now viewed from the top without any perspective corrections (a so-called orthographic view).
 
 Feel free to use these movies for education or other purposes. They are licensed under a [Creative Commons Attribution-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-sa/4.0/) (whereas the python code is released under GPL-3.0 or later).
