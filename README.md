@@ -149,6 +149,6 @@ orbits/planets, which are in an inertial reference frame.
 # References
 
 Zeebe (2023) The Astronomical Journal. orbitN: A Symplectic Integrator for
-Planetary Systems Dominated by a Central Mass---Insight into Long-term Solar
+Planetary Systems Dominated by a Central Mass—Insight into Long-term Solar
 System Chaos
 [DOI:10.3847/1538-3881/acd63b](https://doi.org/10.3847/1538-3881/acd63b)
