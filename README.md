@@ -1,10 +1,11 @@
 # visualise orbitN output in Blender
 
-orbitN is a symplectic integrator for near-Keplerian planetary systems. This
+`orbitN` is a symplectic integrator for near-Keplerian planetary systems. This
 allows us to calculate how the solar system may have evolved over geological
 time scales, and to interrogate Earth's eccentricity in the geologic past. See
-Zeebe 2023 for the paper that describes the model. orbitN will be available for
-free on https://github.com/rezeebe/orbitN under the GPL-3 license.
+Zeebe ([2023](https://doi.org/10.3847/1538-3881/acd63b)) for the paper that
+describes the model. `orbitN` is available for free on
+https://github.com/rezeebe/orbitN under the GPL-3 license.
 
 [Blender](https://www.blender.org/) is a free (libre) 3D software that's used
 in movies and games. Here we use Blender's python API to visualise orbitN
@@ -23,12 +24,18 @@ Because the video plays at 24 frames per second, this means that every second,
 120 days pass.
 
 [movie of animated orbits for the past 405 kyr](movies/animated_orbits_405kyr_g5.mp4)
-This video shows how the orbits dance around over the past 405 thousand years (kyr) from an angle. It also shows what Earth's eccentricity looked like at the time.
+This video shows how the orbits dance around over the past 405 thousand years
+(kyr) from an angle. It also shows what Earth's eccentricity looked like at the
+time.
 
 [movie of animated orbits for the past 405 kyr from the top](movies/animated_orbits_405kyr_ortho_top.mp4)
-The same as the above, but now viewed from the top without any perspective corrections (a so-called orthographic view).
+The same as the above, but now viewed from the top without any perspective
+corrections (a so-called orthographic view).
 
-Feel free to use these movies for education or other purposes. They are licensed under a [Creative Commons Attribution-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-sa/4.0/) (whereas the python code is released under GPL-3.0 or later).
+Feel free to use these movies for education or other purposes. They are
+licensed under a [Creative Commons Attribution-ShareAlike 4.0 International
+License](http://creativecommons.org/licenses/by-sa/4.0/) (whereas the python
+code is released under GPL-3.0 or later).
 
 [![License: CC BY-SA 4.0](https://licensebuttons.net/l/by-sa/4.0/80x15.png)](https://creativecommons.org/licenses/by-sa/4.0/)
 
@@ -141,6 +148,7 @@ orbits/planets, which are in an inertial reference frame.
 
 # References
 
-Zeebe (2023) Astronomical Journal. orbitN: A symplectic integrator for planetary
-systems dominated by a central mass -- Insight into long-term solar system
-chaos
+Zeebe (2023) The Astronomical Journal. orbitN: A Symplectic Integrator for
+Planetary Systems Dominated by a Central Mass---Insight into Long-term Solar
+System Chaos
+[DOI:10.3847/1538-3881/acd63b](https://doi.org/10.3847/1538-3881/acd63b)
